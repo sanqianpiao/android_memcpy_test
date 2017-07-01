@@ -17,7 +17,7 @@ Java_com_example_sanqian_android_1memcpy_1test_ByteUtil_getMsgFromJni(JNIEnv *en
 
 JNIEXPORT jbyteArray JNICALL
 Java_com_example_sanqian_android_1memcpy_1test_ByteUtil_copyByteArray(JNIEnv *env, jclass type,
-                                                                      jint srcHandle, jint length) {
+                                                                      jlong srcHandle, jint length) {
 
     jbyteArray dstData = (*env)->NewByteArray(env, length);
     (*env)->SetByteArrayRegion(env, dstData, 0, length, (void *)srcHandle);
@@ -25,7 +25,7 @@ Java_com_example_sanqian_android_1memcpy_1test_ByteUtil_copyByteArray(JNIEnv *en
 
 }
 
-JNIEXPORT jint JNICALL
+JNIEXPORT jlong JNICALL
 Java_com_example_sanqian_android_1memcpy_1test_ByteUtil_saveByteArray(JNIEnv *env, jclass type,
                                                                       jbyteArray data_, jint length) {
     int size = length * sizeof(jbyte);
@@ -33,7 +33,7 @@ Java_com_example_sanqian_android_1memcpy_1test_ByteUtil_saveByteArray(JNIEnv *en
     if (handle != NULL) {
         (*env)->GetByteArrayRegion(env, data_, 0, length, handle);
     }
-    return (jint) handle;
+    return (jlong) handle;
 }
 
 JNIEXPORT jstring JNICALL

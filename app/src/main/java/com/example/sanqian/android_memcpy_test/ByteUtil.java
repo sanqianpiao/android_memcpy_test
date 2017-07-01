@@ -10,9 +10,9 @@ public class ByteUtil {
 
     public static native String getMsgFromJni();
 
-    public static native byte[] copyByteArray(int handle, int length);
+    public static native byte[] copyByteArray(long handle, int length);
 
-    public static native int saveByteArray(byte[] data, int length);
+    public static native long saveByteArray(byte[] data, int length);
 
-    public static native String getByteArrayAsString(int handle, int length);
+    public static native String getByteArrayAsString(long handle, int length);
 }

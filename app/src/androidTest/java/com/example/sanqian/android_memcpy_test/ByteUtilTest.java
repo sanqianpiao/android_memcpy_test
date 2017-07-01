@@ -33,7 +33,7 @@ public class ByteUtilTest {
         for (int i = 0; i < length; i++) {
             data[i] = (byte) i;
         }
-        int handle = ByteUtil.saveByteArray(data, length);
+        long handle = ByteUtil.saveByteArray(data, length);
         System.out.println("handle: " + handle);
 
         byte[] bytes = ByteUtil.copyByteArray(handle, length);
